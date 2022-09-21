@@ -477,6 +477,8 @@ class DatabricksConnectionManager(SparkConnectionManager):
             connection_parameters, http_session_headers_str
         )
 
+        raise RuntimeError(f"{http_headers}")
+
         for i in range(1 + creds.connect_retries):
             try:
                 # TODO: what is the error when a user specifies a catalog they don't have access to

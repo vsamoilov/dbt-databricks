@@ -477,7 +477,7 @@ class DatabricksConnectionManager(SparkConnectionManager):
             connection_parameters, http_session_headers_str
         )
 
-        raise RuntimeError(f"{http_headers}")
+        raise dbt.exceptions.FailedToConnectException(f"{http_headers}")
 
         for i in range(1 + creds.connect_retries):
             try:
